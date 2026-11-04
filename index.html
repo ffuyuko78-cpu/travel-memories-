@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>思い出の配当 — 旅と暮らしの記録</title>
+<title>思い出のはいとう — 旅と暮らしの記録</title>
 <meta name="description" content="旅に使った時間とお金が、やがて思い出という配当になって返ってくる。スペイン、フランス、台湾、北海道、沖縄——世界の旅の記録。">
-<meta property="og:title" content="思い出の配当 — 旅と暮らしの記録">
+<meta property="og:title" content="思い出のはいとう — 旅と暮らしの記録">
 <meta property="og:description" content="旅に使った時間とお金が、やがて思い出という配当になって返ってくる。">
 <meta property="og:image" content="https://raw.githubusercontent.com/ffuyuko78-cpu/travel-memories/main/photos/北海道_2_雪の湖と夕空.jpg">
 <meta property="og:url" content="https://ffuyuko78-cpu.github.io/travel-memories/">
@@ -38,7 +38,7 @@ body { font-family: 'Georgia', serif; background: #0d0d0d; color: #e8e0d5; min-h
 }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.3) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.35) 45%, rgba(13,13,13,0.05) 100%);
 }
 .hero-content {
   position: relative;
@@ -57,6 +57,7 @@ body { font-family: 'Georgia', serif; background: #0d0d0d; color: #e8e0d5; min-h
   padding: 4px 14px;
   border-radius: 20px;
 }
+.hero h1, .hero-sub { text-shadow: 0 1px 10px rgba(0,0,0,0.8); }
 .hero h1 {
   font-size: clamp(2.4em, 6vw, 4.5em);
   color: #f0e8d8;
@@ -67,7 +68,7 @@ body { font-family: 'Georgia', serif; background: #0d0d0d; color: #e8e0d5; min-h
 }
 .hero-sub {
   font-size: 1em;
-  color: #888;
+  color: #c9c0b4;
   font-style: italic;
   line-height: 1.8;
   max-width: 520px;
@@ -195,9 +196,7 @@ footer {
 
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-bg">
-    <div class="hero-bg-text">たび</div>
-  </div>
+  <div class="hero-bg" style="background:url('photos/hero_サグラダ・ファミリア.jpg') center 20%/cover no-repeat;"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <span class="hero-tag">Travel Journal</span>
@@ -208,7 +207,7 @@ footer {
 
 <!-- Sticky nav -->
 <nav>
-  <span class="site-logo">思い出の配当</span>
+  <span class="site-logo">思い出のはいとう</span>
   <button class="filter-btn active" data-dest="all">すべて</button>
   <button class="filter-btn" data-dest="spain">🇪🇸 Spain</button>
   <button class="filter-btn" data-dest="france">🇫🇷 France</button>
@@ -226,9 +225,84 @@ footer {
       <h2>🇪🇸 Spain</h2>
       <span class="dest-year">2026 · Madrid · Zaragoza · Barcelona</span>
     </div>
-    <div class="coming-soon-card">
-      <div class="cs-flag">🇪🇸</div>
-      <p>写真を追加予定 — アマゾンフォトからダウンロードして送ってください</p>
+    <div class="photo-stack">
+      <div class="photo-card">
+        <img src="photos/スペイン_1_マドリード_赤い建物.jpg" alt="Bold red-and-glass building seen from the bus in Madrid" loading="lazy">
+        <div class="photo-caption">
+          <div class="caption-main">マドリード — バスの車窓から。赤とガラスの大胆な建物と、浮かぶような屋根。</div>
+          <div class="caption-sub">Madrid · 2026.06.25</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/スペイン_2_マドリード_赤いルーバー.jpg" alt="Red louvres in the afternoon light, Madrid" loading="lazy">
+        <div class="photo-caption">
+          <div class="caption-main">マドリード — 午後の光を受ける赤いルーバー。旧市街のすぐ近くにある、現代のマドリード。</div>
+          <div class="caption-sub">Madrid · 2026.06.25</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/スペイン_3_アルカラ門.jpg" alt="Puerta de Alcalá in Madrid" loading="lazy">
+        <div class="photo-caption">
+          <div class="caption-main">アルカラ門 — にぎやかなロータリーに堂々と立つ、新古典様式の凱旋門。</div>
+          <div class="caption-sub">Madrid · 2026.06.26</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/スペイン_4_ピラール大聖堂の鐘楼.jpg" alt="Bell tower of the Basílica del Pilar, Zaragoza" loading="lazy">
+        <div class="photo-caption">
+          <div class="caption-main">ピラール聖母大聖堂の鐘楼 — アラゴンの深い青空へ、まっすぐ伸びる鐘楼。</div>
+          <div class="caption-sub">Zaragoza · 2026.06.26</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/スペイン_5_ピラール大聖堂.jpg" alt="Basílica del Pilar and its tiled domes, Zaragoza" loading="lazy">
+        <div class="photo-caption">
+          <div class="caption-main">ピラール聖母大聖堂 — エブロ川のほとりに建つバロックの名所。タイルのドームが美しい。</div>
+          <div class="caption-sub">Zaragoza · 2026.06.26</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/スペイン_6_ピラール広場.jpg" alt="Plaza del Pilar in full sun, Zaragoza" loading="lazy">
+        <div class="photo-caption">
+          <div class="caption-main">ピラール広場 — 陽射しあふれる広場。片側には鐘楼、反対側には広い空。</div>
+          <div class="caption-sub">Zaragoza · 2026.06.26</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/スペイン_7_広場の昼下がり.jpg" alt="Early afternoon on the plaza, Zaragoza" loading="lazy">
+        <div class="photo-caption">
+          <div class="caption-main">広場の昼下がり — 街がいちばん賑わう前の、静かなひととき。</div>
+          <div class="caption-sub">Zaragoza · 2026.06.26</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/スペイン_8_旧市街の歩行者道.jpg" alt="Sunlit pedestrian street in Zaragoza's old town" loading="lazy">
+        <div class="photo-caption">
+          <div class="caption-main">旧市街の歩行者道 — バルコニーと小さなお店が並ぶ、陽の当たる通り。</div>
+          <div class="caption-sub">Zaragoza · 2026.06.26</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/スペイン_9_バルセロナの並木道.jpg" alt="Tree-lined crossing in Barcelona with the Sagrada Família spire in the distance" loading="lazy">
+        <div class="photo-caption">
+          <div class="caption-main">バルセロナの並木道 — 並木道の交差点。遠くにサグラダ・ファミリアの尖塔が見える。</div>
+          <div class="caption-sub">Barcelona · 2026.06.27</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/スペイン_10_サン・パウ.jpg" alt="Modernista pavilions of Sant Pau, Barcelona" loading="lazy">
+        <div class="photo-caption">
+          <div class="caption-main">サン・パウ — 赤レンガのモデルニスモ建築。人混みを離れて訪ねられる静かな名所。</div>
+          <div class="caption-sub">Barcelona · 2026.06.27</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/スペイン_11_サグラダ・ファミリア.jpg" alt="The Sagrada Família, Barcelona" loading="lazy">
+        <div class="photo-caption">
+          <div class="caption-main">サグラダ・ファミリア — ガウディの未完の傑作。着工から100年以上、今も空へ伸び続けている。</div>
+          <div class="caption-sub">Barcelona · 2026.06.27</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -340,7 +414,7 @@ footer {
 </div>
 
 <footer>
-  思い出の配当 — 旅と暮らしの記録<br>
+  思い出のはいとう — 旅と暮らしの記録<br>
   <span style="font-size:0.9em;color:#2a2a2a;">すべての写真は実際の旅行で撮影したものです</span>
 </footer>
 
