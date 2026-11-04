@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>思い出の配当 — 旅と暮らしの記録</title>
+<meta name="description" content="旅に使った時間とお金が、やがて思い出という配当になって返ってくる。スペイン、フランス、台湾、北海道、沖縄——世界の旅の記録。">
+<meta property="og:title" content="思い出の配当 — 旅と暮らしの記録">
+<meta property="og:description" content="旅に使った時間とお金が、やがて思い出という配当になって返ってくる。">
+<meta property="og:image" content="https://raw.githubusercontent.com/ffuyuko78-cpu/travel-memories/main/photos/北海道_2_雪の湖と夕空.jpg">
+<meta property="og:url" content="https://ffuyuko78-cpu.github.io/travel-memories/">
+<meta property="og:type" content="website">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Georgia', serif; background: #0d0d0d; color: #e8e0d5; min-height: 100vh; }
+
+/* Hero */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #1a0a00 0%, #2d1a0a 50%, #0d1a2d 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-bg-text {
+  font-size: 20vw;
+  color: rgba(201,168,108,0.06);
+  font-weight: bold;
+  letter-spacing: -0.05em;
+  user-select: none;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.3) 50%, transparent 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 40px 60px;
+  max-width: 800px;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 0.75em;
+  letter-spacing: 0.2em;
+  color: #c9a86c;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  border: 1px solid rgba(201,168,108,0.4);
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+.hero h1 {
+  font-size: clamp(2.4em, 6vw, 4.5em);
+  color: #f0e8d8;
+  font-weight: normal;
+  line-height: 1.15;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+.hero-sub {
+  font-size: 1em;
+  color: #888;
+  font-style: italic;
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+/* Nav */
+nav {
+  background: rgba(13,13,13,0.95);
+  border-bottom: 1px solid #1e1e1e;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.site-logo {
+  font-size: 1em;
+  color: #c9a86c;
+  letter-spacing: 0.08em;
+  margin-right: 16px;
+  white-space: nowrap;
+}
+.filter-btn {
+  background: none;
+  border: 1px solid #2a2a2a;
+  color: #666;
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-family: Georgia, serif;
+  font-size: 0.82em;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.filter-btn:hover { border-color: #c9a86c; color: #c9a86c; }
+.filter-btn.active { background: rgba(201,168,108,0.12); border-color: #c9a86c; color: #c9a86c; }
+
+/* Gallery */
+.gallery { max-width: 760px; margin: 0 auto; padding: 60px 20px; }
+
+.dest-section { margin-bottom: 80px; }
+.dest-section.hidden { display: none; }
+
+.dest-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #1e1e1e;
+}
+.dest-header h2 {
+  font-size: 1.6em;
+  color: #e8e0d5;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+}
+.dest-header .dest-year {
+  font-size: 0.82em;
+  color: #555;
+  letter-spacing: 0.08em;
+}
+
+.photo-stack { display: flex; flex-direction: column; gap: 56px; }
+
+.photo-card { position: relative; }
+.photo-card img {
+  width: 100%;
+  height: 60vw;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
+}
+.photo-caption {
+  padding: 20px 4px 0;
+}
+.caption-main {
+  font-size: 1em;
+  color: #d4c8c0;
+  line-height: 1.7;
+  font-style: italic;
+}
+.caption-sub {
+  font-size: 0.82em;
+  color: #555;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+/* Coming soon */
+.coming-soon-card {
+  border: 1px dashed #252525;
+  border-radius: 3px;
+  padding: 60px 20px;
+  text-align: center;
+  color: #333;
+}
+.coming-soon-card .cs-flag { font-size: 2.5em; margin-bottom: 12px; }
+.coming-soon-card p { font-style: italic; font-size: 0.9em; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 48px 20px;
+  color: #333;
+  font-size: 0.85em;
+  border-top: 1px solid #1a1a1a;
+  line-height: 2;
+}
+
+@media (max-width: 600px) {
+  .hero-content { padding: 0 20px 40px; }
+  nav { padding: 14px 16px; }
+  .photo-card img { height: 75vw; max-height: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-bg-text">旅</div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Travel Journal</span>
+    <h1>思い出の配当</h1>
+    <p class="hero-sub">旅に使った時間とお金は、やがて思い出という配当になって返ってくる。<br>スペイン、フランス、台湾、そして日本の果て——旅の記録。</p>
+  </div>
+</section>
+
+<!-- Sticky nav -->
+<nav>
+  <span class="site-logo">思い出の配当</span>
+  <button class="filter-btn active" data-dest="all">すべて</button>
+  <button class="filter-btn" data-dest="spain">🇪🇸 Spain</button>
+  <button class="filter-btn" data-dest="france">🇫🇷 France</button>
+  <button class="filter-btn" data-dest="taiwan">🇹🇼 Taiwan</button>
+  <button class="filter-btn" data-dest="china">🇨🇳 China</button>
+  <button class="filter-btn" data-dest="hokkaido">🏔 Hokkaido</button>
+  <button class="filter-btn" data-dest="okinawa">🌺 Okinawa</button>
+</nav>
+
+<div class="gallery">
+
+  <!-- Spain -->
+  <section class="dest-section" data-dest="spain">
+    <div class="dest-header">
+      <h2>🇪🇸 Spain</h2>
+      <span class="dest-year">2026 · Madrid · Zaragoza · Barcelona</span>
+    </div>
+    <div class="coming-soon-card">
+      <div class="cs-flag">🇪🇸</div>
+      <p>写真を追加予定 — アマゾンフォトからダウンロードして送ってください</p>
+    </div>
+  </section>
+
+  <!-- France -->
+  <section class="dest-section" data-dest="france">
+    <div class="dest-header">
+      <h2>🇫🇷 France</h2>
+      <span class="dest-year">Paris · Versailles</span>
+    </div>
+    <div class="coming-soon-card">
+      <div class="cs-flag">🇫🇷</div>
+      <p>写真を追加予定</p>
+    </div>
+  </section>
+
+  <!-- Taiwan -->
+  <section class="dest-section" data-dest="taiwan">
+    <div class="dest-header">
+      <h2>🇹🇼 Taiwan</h2>
+      <span class="dest-year">Taipei · Jiufen</span>
+    </div>
+    <div class="coming-soon-card">
+      <div class="cs-flag">🇹🇼</div>
+      <p>写真を追加予定</p>
+    </div>
+  </section>
+
+  <!-- China -->
+  <section class="dest-section" data-dest="china">
+    <div class="dest-header">
+      <h2>🇨🇳 China</h2>
+      <span class="dest-year">Beijing · Shanghai</span>
+    </div>
+    <div class="coming-soon-card">
+      <div class="cs-flag">🇨🇳</div>
+      <p>写真を追加予定</p>
+    </div>
+  </section>
+
+  <!-- Hokkaido -->
+  <section class="dest-section" data-dest="hokkaido">
+    <div class="dest-header">
+      <h2>🏔 北海道</h2>
+      <span class="dest-year">Hokkaido · Winter</span>
+    </div>
+    <div class="photo-stack">
+      <div class="photo-card">
+        <img src="photos/北海道_1_雪の岩峰.jpg" alt="Snowy rocky peaks in Hokkaido">
+        <div class="photo-caption">
+          <div class="caption-main">雪の岩峰 — 白に覆われた岩が、冬の空に静かに聳える。</div>
+          <div class="caption-sub">Hokkaido · Winter</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/北海道_2_雪の湖と夕空.jpg" alt="Snowy lake and sunset sky in Hokkaido">
+        <div class="photo-caption">
+          <div class="caption-main">雪の湖と夕空 — 凍りかけた湖面に、茜色の空が映り込む。</div>
+          <div class="caption-sub">Hokkaido · Winter</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/北海道_3_摩周湖.jpg" alt="Lake Mashu in Hokkaido">
+        <div class="photo-caption">
+          <div class="caption-main">摩周湖 — 霧の湖と呼ばれる、神秘的な青。晴れた日は奇跡。</div>
+          <div class="caption-sub">Hokkaido · Lake Mashu</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/北海道_4_流氷.jpg" alt="Drift ice in Hokkaido">
+        <div class="photo-caption">
+          <div class="caption-main">流氷 — オホーツク海から流れ着く氷の絨毯。この光景は冬だけのもの。</div>
+          <div class="caption-sub">Hokkaido · Okhotsk Sea · Winter</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Okinawa -->
+  <section class="dest-section" data-dest="okinawa">
+    <div class="dest-header">
+      <h2>🌺 沖縄</h2>
+      <span class="dest-year">Okinawa · Underground</span>
+    </div>
+    <div class="photo-stack">
+      <div class="photo-card">
+        <img src="photos/沖縄_1_鍾乳洞.jpg" alt="Limestone cave in Okinawa">
+        <div class="photo-caption">
+          <div class="caption-main">鍾乳洞 — 地下に広がる、光と影の別世界。</div>
+          <div class="caption-sub">Okinawa · Limestone cave</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/沖縄_2_鍾乳洞.jpg" alt="Limestone cave formations in Okinawa">
+        <div class="photo-caption">
+          <div class="caption-main">鍾乳洞の奥 — 何万年もかけて作られた石の彫刻。</div>
+          <div class="caption-sub">Okinawa · Limestone cave</div>
+        </div>
+      </div>
+      <div class="photo-card">
+        <img src="photos/沖縄_3_天井鍾乳石.jpg" alt="Stalactites on cave ceiling in Okinawa">
+        <div class="photo-caption">
+          <div class="caption-main">天井鍾乳石 — 天井から垂れ下がる石筍。見上げるたびに息をのむ。</div>
+          <div class="caption-sub">Okinawa · Stalactites</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  思い出の配当 — 旅と暮らしの記録<br>
+  <span style="font-size:0.9em;color:#2a2a2a;">すべての写真は実際の旅行で撮影したものです</span>
+</footer>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    var dest = btn.dataset.dest;
+    document.querySelectorAll('.dest-section').forEach(function(sec) {
+      if (dest === 'all' || sec.dataset.dest === dest) {
+        sec.classList.remove('hidden');
+      } else {
+        sec.classList.add('hidden');
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
